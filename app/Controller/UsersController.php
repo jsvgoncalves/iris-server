@@ -50,17 +50,23 @@ class UsersController extends AppController {
 	public function add() {
 		if ($this->request->is('post')) {
 			$this->User->create();
+			// Disables auto rendering the layout and views.
+			$this->autoRender = false;
+			// Default JSON response
+			$response['status'] = 'ok';
+
+			// Tries to save the user with the given data.
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
-				$good['status'] = 'ok';
-				$this->autoRender = false;
-				echo json_encode($good);
-				return;
 				// return $this->redirect(array('action' => 'index'));
 			} else {
+				$response['status'] = 'failed';
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
+			// Echo the JSON response
+			echo json_encode($response);
 		}
+		// If it is not post just render the normal add view.
 	}
 
 /**
