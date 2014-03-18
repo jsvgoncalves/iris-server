@@ -34,13 +34,4 @@ class AppController extends Controller {
 	public $components = array('DebugKit.Toolbar', 'Session');
 
 
-	/**
-	 * existsIMEI
-	 *
-	 * @return void
-	 * @author João Gonçalves
-	 */
-	 public function existsIMEI($value='') {
-		# code...
-	}
 }
