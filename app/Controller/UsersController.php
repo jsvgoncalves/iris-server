@@ -13,7 +13,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator', 'RequestHandler', 'Session');
+	public $components = array('Paginator', 'RequestHandler');
 
 /**
  * index method
@@ -52,7 +52,11 @@ class UsersController extends AppController {
 			$this->User->create();
 			if ($this->User->save($this->request->data)) {
 				$this->Session->setFlash(__('The user has been saved.'));
-				return $this->redirect(array('action' => 'index'));
+				$good['status'] = 'ok';
+				$this->autoRender = false;
+				echo json_encode($good);
+				return;
+				// return $this->redirect(array('action' => 'index'));
 			} else {
 				$this->Session->setFlash(__('The user could not be saved. Please, try again.'));
 			}
