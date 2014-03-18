@@ -13,7 +13,7 @@ class UsersController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'RequestHandler', 'Session');
 
 /**
  * index method
@@ -23,6 +23,7 @@ class UsersController extends AppController {
 	public function index() {
 		$this->User->recursive = 0;
 		$this->set('users', $this->Paginator->paginate());
+		$this->set('_serialize', array('users'));
 	}
 
 /**
@@ -38,6 +39,7 @@ class UsersController extends AppController {
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
+		$this->set('_serialize', array('user'));
 	}
 
 /**
