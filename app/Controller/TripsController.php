@@ -47,6 +47,9 @@ class TripsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
+			$this->_uploadFile($this->request->data['Trip']['submittedfile']);
+			// Remove this and do all the logic
+			die;
 			$this->Trip->create();
 			if ($this->Trip->save($this->request->data)) {
 				$this->Session->setFlash(__('The trip has been saved.'));
@@ -57,6 +60,22 @@ class TripsController extends AppController {
 		}
 		$users = $this->Trip->User->find('list');
 		$this->set(compact('users'));
+	}
+
+	/**
+	 * _uploadFile
+	 *
+	 * @return void
+	 * @author João Gonçalves
+	 */
+	 private function _uploadFile($fileData) {
+		$UPLOAD_PATH = "./files/trips/";
+		//TODO: Add more checks
+		if(move_uploaded_file($fileData['tmp_name'], $UPLOAD_PATH . $fileData['name'])) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 /**

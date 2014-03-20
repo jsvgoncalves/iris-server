@@ -37,8 +37,8 @@ class TripFixture extends CakeTestFixture {
 		array(
 			'user_id' => '',
 			'id' => 1,
-			'start' => 1395167862,
-			'end' => 1395167862
+			'start' => 1395328811,
+			'end' => 1395328811
 		),
 	);
 

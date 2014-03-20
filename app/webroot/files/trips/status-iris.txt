@@ -1,0 +1,52 @@
+TODO (internal)
+====
+
+- Pesquisar file upload com cake (falar helder)
+- Por AAO no github ou bitbucket
+- Criar script decente da DB (e testar alterações)
+- git push
+- Pesquisar socialdraft
+- ver sigla IMEI
+- Add token (w/ expiration) & password to DB
+- Corrigir maiusculas etc na DB
+
+
+Req.Func.Srv 01.1 - Page for registering.
+Req.Func.Srv 01.2 - Page for authentication.
+Req.Func.Srv 01.3 - Page for upload files with IMEI.
+Req.Func.Srv 01.4 ­- Given an IMEI return if exists.
+
+
+
+TODO
+====
+
+- Tratar de pedir ao CICA para abrir a porta 8083 do wardrop.
+- Relembrar Prof. Rossetti para disponibilizar a DB e ligar com wardrop
+- Implementar file upload
+
+
+DONE
+====
+- Instalação de framework @ wardrop
+- Reconfiguração do script da DB (de acordo com COC do cakephp)
+- Configuração inicial da DB
+- Paginas CRUD para todas as tabelas (incluindo registar user)
+- Retorno dos resultados em JSON (API)
+- Req.Func.Srv 01.1
+- Req.Func.Srv 01.4
+
+User Registration
+
+Must be POST. Fields marked with [x] are required.
+
+Fields
+----
+
+syntax: data[User][-]
+	- username [x]
+	- email [x]
+	- Age [x]
+	- Nationality [x]
+	- Gender [x]
+	- Comment

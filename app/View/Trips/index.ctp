@@ -10,14 +10,16 @@
 	</tr>
 	<?php foreach ($trips as $trip): ?>
 	<tr>
-		<td><?php echo h($trip['Trip']['user_id']); ?>&nbsp;</td>
+		<td>
+			<?php echo $this->Html->link($trip['User']['id'], array('controller' => 'users', 'action' => 'view', $trip['User']['id'])); ?>
+		</td>
 		<td><?php echo h($trip['Trip']['id']); ?>&nbsp;</td>
 		<td><?php echo h($trip['Trip']['start']); ?>&nbsp;</td>
 		<td><?php echo h($trip['Trip']['end']); ?>&nbsp;</td>
 		<td class="actions">
-			<?php echo $this->Html->link(__('View'), array('action' => 'view', $trip['Trip']['user_id'])); ?>
-			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $trip['Trip']['user_id'])); ?>
-			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $trip['Trip']['user_id']), null, __('Are you sure you want to delete # %s?', $trip['Trip']['user_id'])); ?>
+			<?php echo $this->Html->link(__('View'), array('action' => 'view', $trip['Trip']['id'])); ?>
+			<?php echo $this->Html->link(__('Edit'), array('action' => 'edit', $trip['Trip']['id'])); ?>
+			<?php echo $this->Form->postLink(__('Delete'), array('action' => 'delete', $trip['Trip']['id']), null, __('Are you sure you want to delete # %s?', $trip['Trip']['id'])); ?>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -40,5 +42,7 @@
 	<h3><?php echo __('Actions'); ?></h3>
 	<ul>
 		<li><?php echo $this->Html->link(__('New Trip'), array('action' => 'add')); ?></li>
+		<li><?php echo $this->Html->link(__('List Users'), array('controller' => 'users', 'action' => 'index')); ?> </li>
+		<li><?php echo $this->Html->link(__('New User'), array('controller' => 'users', 'action' => 'add')); ?> </li>
 	</ul>
 </div>

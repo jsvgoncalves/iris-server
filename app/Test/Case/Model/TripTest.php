@@ -13,7 +13,10 @@ class TripTest extends CakeTestCase {
  * @var array
  */
 	public $fixtures = array(
-		'app.trip'
+		'app.trip',
+		'app.user',
+		'app.play_trip',
+		'app.trip_instance'
 	);
 
 /**
