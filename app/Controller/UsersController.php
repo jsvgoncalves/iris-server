@@ -48,12 +48,12 @@ class UsersController extends AppController {
  * @return void
  * @author João Gonçalves
  */
-	 public function existsIMEI($id = null) {
+	 public function existsIMEI($imei = null) {
 		$this->autoRender = false;
 		$response['status'] = 'ok';
 		// If the user doesn't exist change the response status
 		// if (!$this->User->exists($id)) {
-		$count = $this->User->find('count', array('conditions' => array('User.id LIKE' => $id)));
+		$count = $this->User->find('count', array('conditions' => array('User.imei LIKE' => $id)));
 		if($count != 1) {
 			$response['status'] = 'failed';
 		}
