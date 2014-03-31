@@ -23,22 +23,22 @@
 		</dd>
 		<dt><?php echo __('Age'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['Age']); ?>
+			<?php echo h($user['User']['age']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Nationality'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['Nationality']); ?>
+			<?php echo h($user['User']['nationality']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Gender'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['Gender']); ?>
+			<?php echo h($user['User']['gender']); ?>
 			&nbsp;
 		</dd>
 		<dt><?php echo __('Comment'); ?></dt>
 		<dd>
-			<?php echo h($user['User']['Comment']); ?>
+			<?php echo h($user['User']['comment']); ?>
 			&nbsp;
 		</dd>
 	</dl>

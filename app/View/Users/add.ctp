@@ -6,10 +6,10 @@
 		echo $this->Form->input('imei');
 		echo $this->Form->input('username');
 		echo $this->Form->input('email');
-		echo $this->Form->input('Age');
-		echo $this->Form->input('Nationality');
-		echo $this->Form->input('Gender');
-		echo $this->Form->input('Comment');
+		echo $this->Form->input('age');
+		echo $this->Form->input('nationality');
+		echo $this->Form->input('gender');
+		echo $this->Form->input('comment');
 	?>
 	</fieldset>
 <?php echo $this->Form->end(__('Submit')); ?>
