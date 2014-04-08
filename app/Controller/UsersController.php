@@ -53,8 +53,8 @@ class UsersController extends AppController {
 		$response['status'] = 'ok';
 		// If the user doesn't exist change the response status
 		// if (!$this->User->exists($id)) {
-		$count = $this->User->find('count', array('conditions' => array('User.imei LIKE' => $id)));
-		if($count != 1) {
+		$count = $this->User->find('count', array('conditions' => array('User.imei LIKE' => $imei)));
+		if($count < 1) {
 			$response['status'] = 'failed';
 		}
 		echo json_encode($response);
