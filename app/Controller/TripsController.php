@@ -47,7 +47,10 @@ class TripsController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->_uploadFile($this->request->data['Trip']['submittedfile']);
+			$this->autoRender = false;
+			$fileOk = $this->_uploadFile($this->request->data['Trip']['submittedfile']);
+			$response['status'] = $fileOk == true ? 'ok' : 'failed';
+			echo json_encode($response);
 			// Remove this and do all the logic
 			die;
 			$this->Trip->create();
