@@ -23,7 +23,7 @@ class LogsController extends AppController {
  * @return void
  */
 	public function index() {
-		$dir = new Folder('files/');
+		$dir = new Folder('files/trips/');
 		$this->set('files', $dir->find('.*\.xml', true));
 	}
 
@@ -32,7 +32,7 @@ class LogsController extends AppController {
  * @return the response with the file.
  */
 	public function sendFile($fileName) {
-		$this->response->file('webroot/files/' . $fileName);
+		$this->response->file('webroot/files/trips/' . $fileName);
 		// Return response object to prevent controller from trying to render
 		// a view
 		return $this->response;

@@ -5,7 +5,7 @@
 		$file,
 		array(
 			'controller' => 'logs',	'action' => 'sendFile',
-			'file1.xml', 'full_base' => true)
+			$file, 'full_base' => true)
 	); ?>
 <?php } ?>
 
