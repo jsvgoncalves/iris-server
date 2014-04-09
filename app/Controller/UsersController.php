@@ -67,11 +67,21 @@ class UsersController extends AppController {
  */
 	public function add() {
 		if ($this->request->is('post')) {
-			$this->User->create();
-			// Disables auto rendering the layout and views.
-			$this->autoRender = false;
 			// Default JSON response
 			$response['status'] = 'ok';
+			// Disables auto rendering the layout and views.
+			$this->autoRender = false;
+
+			// Checking if user already exists
+			$this->User->id = $this->request->data['User']['imei'];
+			if ($this->User->exists()) {
+				$response['status'] = 'failed';
+				$response['code'] = 'duplicateimei';
+				echo json_encode($response);
+				return;
+			}
+			// If it doesn't exist then create a new User.
+			$this->User->create();
 
 			// Tries to save the user with the given data.
 			if ($this->User->save($this->request->data)) {

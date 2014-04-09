@@ -9,6 +9,7 @@ App::uses('AppModel', 'Model');
  */
 class User extends AppModel {
 
+	public $primaryKey = 'imei';
 /**
  * Validation rules
  *
@@ -34,6 +35,9 @@ class User extends AppModel {
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
+			'isUnique' => array(
+				'rule' => array('isUnique'),
+			)
 		),
 		'email' => array(
 			'email' => array(
